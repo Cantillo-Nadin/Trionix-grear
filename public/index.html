@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trionix Gear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Trionix Gear</h1>
+    <nav>
+      <button data-vista="inventario" class="activo">Inventario</button>
+      <button data-vista="usuarios">Usuarios</button>
+      <button data-vista="prestamos">Préstamos</button>
+      <button data-vista="resumen">Resumen</button>
+    </nav>
+  </header>
+
+  <div id="mensaje" role="alert" hidden></div>
+
+  <main>
+    <section id="inventario" class="vista">
+      <h2>Inventario de equipos</h2>
+      <form id="form-equipo">
+        <input name="codigo" placeholder="Código (EQ-0009)" required>
+        <input name="nombre" placeholder="Nombre del equipo" required>
+        <select name="categoria" required>
+          <option value="">Categoría</option>
+          <option>portatil</option><option>proyector</option><option>camara</option>
+          <option>audio</option><option>redes</option>
+        </select>
+        <input name="ubicacion" placeholder="Ubicación (opcional)">
+        <button type="submit">Crear equipo</button>
+      </form>
+      <table><thead><tr><th>Código</th><th>Nombre</th><th>Categoría</th><th>Estado</th><th>Ubicación</th></tr></thead>
+      <tbody id="tabla-equipos"></tbody></table>
+    </section>
+
+    <section id="usuarios" class="vista" hidden>
+      <h2>Usuarios</h2>
+      <form id="form-usuario">
+        <input name="nombre" placeholder="Nombre completo" required>
+        <input name="documento" placeholder="Documento (6-12 dígitos)" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <select name="tipo" required>
+          <option value="">Tipo</option>
+          <option>estudiante</option><option>docente</option><option>administrativo</option>
+        </select>
+        <button type="submit">Crear usuario</button>
+      </form>
+      <table><thead><tr><th>Nombre</th><th>Documento</th><th>Email</th><th>Tipo</th><th>Activo</th></tr></thead>
+      <tbody id="tabla-usuarios"></tbody></table>
+    </section>
+
+    <section id="prestamos" class="vista" hidden>
+      <h2>Préstamos</h2>
+      <form id="form-prestamo">
+        <select name="equipoId" id="sel-equipos" required></select>
+        <select name="usuarioId" id="sel-usuarios" required></select>
+        <input name="fechaLimite" type="datetime-local" required>
+        <input name="observaciones" placeholder="Observaciones (opcional)">
+        <button type="submit">Prestar</button>
+      </form>
+      <h3>Préstamos activos</h3>
+      <table><thead><tr><th>Equipo</th><th>Usuario</th><th>Fecha límite</th><th>Estado</th><th></th></tr></thead>
+      <tbody id="tabla-prestamos"></tbody></table>
+    </section>
+
+    <section id="resumen" class="vista" hidden>
+      <h2>Resumen</h2>
+      <div id="tarjetas" class="tarjetas"></div>
+      <h3>Equipos más prestados</h3>
+      <table><thead><tr><th>Código</th><th>Nombre</th><th>Préstamos</th></tr></thead>
+      <tbody id="tabla-top"></tbody></table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

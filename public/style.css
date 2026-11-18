@@ -1,0 +1,34 @@
+:root {
+  --fondo: #f3f5f7; --tinta: #1b2733; --suave: #5b6b7a; --linea: #d5dce3;
+  --acento: #0b6e8a; --ok: #1f7a4d; --warn: #b26a00; --mal: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; background: var(--fondo); color: var(--tinta); }
+header { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;
+  padding: .9rem 1.5rem; background: #fff; border-bottom: 2px solid var(--acento); }
+h1 { margin: 0; font-size: 1.4rem; color: var(--acento); }
+nav { display: flex; gap: .4rem; flex-wrap: wrap; }
+nav button { background: none; border: 1px solid var(--linea); padding: .45rem .9rem; border-radius: 6px; cursor: pointer; color: var(--tinta); }
+nav button.activo { background: var(--acento); color: #fff; border-color: var(--acento); }
+main { max-width: 1000px; margin: 1.2rem auto; padding: 0 1rem; }
+form { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+input, select { padding: .5rem; border: 1px solid var(--linea); border-radius: 6px; font: inherit; min-width: 160px; flex: 1; }
+form button { padding: .5rem 1.1rem; background: var(--acento); color: #fff; border: 0; border-radius: 6px; cursor: pointer; font: inherit; }
+table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--linea); }
+th, td { text-align: left; padding: .55rem .7rem; border-bottom: 1px solid var(--linea); }
+th { background: #e8edf1; font-weight: 600; }
+.estado { padding: .15rem .55rem; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+.disponible { background: #d9f0e3; color: var(--ok); }
+.prestado { background: #fde9c8; color: var(--warn); }
+.mantenimiento { background: #e1e4e8; color: var(--suave); }
+tr.vencido { background: #fbe0de; }
+tr.vencido td:first-child { border-left: 4px solid var(--mal); }
+.btn-dev { background: var(--ok); color: #fff; border: 0; border-radius: 6px; padding: .3rem .7rem; cursor: pointer; }
+#mensaje { position: fixed; top: 1rem; right: 1rem; max-width: 380px; padding: .8rem 1rem; border-radius: 8px;
+  color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.2); z-index: 10; }
+#mensaje.error { background: var(--mal); }
+#mensaje.exito { background: var(--ok); }
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; margin-bottom: 1.2rem; }
+.tarjeta { background: #fff; border: 1px solid var(--linea); border-radius: 8px; padding: .9rem; }
+.tarjeta b { display: block; font-size: 1.8rem; color: var(--acento); }
+.tarjeta span { color: var(--suave); font-size: .9rem; }
